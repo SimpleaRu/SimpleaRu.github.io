@@ -2,46 +2,36 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="style.css">
-    <title>Dev_task</title>
-    <script src="script.js"></script>
-    <style>
-        svg {
-            position: absolute;
-            left: 100px;
-        }
-
-        .path {
-            stroke-dasharray: 0, 2000;
-            animation: dash 10s linear;
-            animation-fill-mode: forwards;
-
-        }
-
-        @keyframes dash {
-            from {
-                stroke-dasharray: 0, 2000;
-            }
-            to {
-                stroke-dasharray: 2000, 0;
-            }
-        }
-    </style>
+  <link rel="stylesheet" href="style.css">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>Dev_task</title>
 </head>
 
-
 <body>
-    <main>
-        <div class="scale">
+  <main class="task">
+    <div class="task-text">
+      <span class="exercise">
+        <span class="exercise-first-number">7</span>
+        <span class="exercise-addition">+</span>
+        <span class="exercise-second-number">4</span>
+        <span class="exercise-equally">=</span>
+        <span class="exercise-sum">?</span>
+      </span>
+    </div>
 
-        </div>
-        <svg>
-            <path class="path" d="M0 80 Q 90 0 180 80 L 180 80 175 70 180 80 170 78 " 
-            stroke="black" fill="transparent" />
-    
-        </svg>
+    <div class="task-scale">
+      <svg class="arrows" width="630px">
+        <path class="path-first-arrow" d="M0 150 Q 175 0 350 150 " stroke="crimson" stroke-width="3" fill="transparent" />
+        <path class="path-second-arrow"  stroke="crimson" stroke-width="3" fill="transparent" />
+      </svg>
+      <div class="img-container">
+        <img src="img/sprite.png" alt="scale" width="875">
+        <input type="text" class="first-num-input" id="first-num-input">
+      </div>
+    </div>
 
-    </main>
+  </main>
+  <script src="script.js" ></script>
 </body>
 
 </html>
