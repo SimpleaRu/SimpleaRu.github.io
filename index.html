@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Dev_task</title>
+    <script src="script.js"></script>
+    <style>
+        svg {
+            position: absolute;
+            left: 100px;
+        }
+
+        .path {
+            stroke-dasharray: 0, 2000;
+            animation: dash 10s linear;
+            animation-fill-mode: forwards;
+
+        }
+
+        @keyframes dash {
+            from {
+                stroke-dasharray: 0, 2000;
+            }
+            to {
+                stroke-dasharray: 2000, 0;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <main>
+        <div class="scale">
+
+        </div>
+        <svg>
+            <path class="path" d="M0 80 Q 90 0 180 80 L 180 80 175 70 180 80 170 78 " 
+            stroke="black" fill="transparent" />
+    
+        </svg>
+
+    </main>
+</body>
+
+</html>
