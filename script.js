@@ -1,6 +1,4 @@
 var pathFirstArrow = document.querySelector('.path-first-arrow');
-var arrows = document.querySelector('.arrows');
-var inputs = document.querySelector('.input');
 var exercise = document.querySelector('.exercise');
 var pathSecondArrow = document.querySelector('.path-second-arrow');
 var firstNumberText = document.querySelector('.exercise-first-number');
@@ -22,18 +20,18 @@ function getCoordinate(num) {
     return x3;
 }
 
-function yAxisShift (elem, num) {
-   num = ((num * 32) / 4) + 30;
-   elem.style.top = '-' + num + 'px';
+function yAxisShift(elem, num) {
+    num = ((num * 32) / 4) + 30;
+    elem.style.top = '-' + num + 'px';
 }
 
 function elemShift(elem, nx) {
     var elemStyles = getComputedStyle(elem);
     var elemWidth = parseInt(elemStyles.width);
     elem.style.left = (nx + (elemWidth / 2)) + 'px';
-} 
+}
 
-function getArrowHeight (length) {
+function getArrowHeight(length) {
     return length / 2 * 0.86;
 }
 
@@ -45,6 +43,7 @@ firstNumberInput.classList.add('input-animation');
 
 firstNumber = getRandomInt(6, 10);
 sum = getRandomInt(11, 15);
+secondNumber = sum - firstNumber;
 
 n1x3 = getCoordinate(firstNumber);
 n1x2 = n1x3 / 2;
@@ -55,14 +54,10 @@ n2x2 = (n2x3 - n1x3) / 2 + n1x3;
 var n1h = 150 - Math.floor(getArrowHeight(n1x3));
 var n2h = 150 - Math.floor(getArrowHeight(n2x3 - n1x3));
 
-
-
 firstNumberText.innerHTML = firstNumber;
-secondNumber = sum - firstNumber;
 secondNumberText.innerHTML = secondNumber;
 
-
-pathFirstArrow.setAttribute('d', `M 0 147 Q ${n1x2} ${n1h} ${n1x3} 147 L ${n1x3-4} 133 ${n1x3} 147 ${n1x3-15} 145`);
+pathFirstArrow.setAttribute('d', `M 0 147 Q ${n1x2} ${n1h} ${n1x3} 147 L ${n1x3 - 4} 133 ${n1x3} 147 ${n1x3 - 15} 145`);
 pathFirstArrow.classList.add('animation');
 
 elemShift(firstNumberInput, n1x2);
@@ -71,11 +66,10 @@ yAxisShift(firstNumberInput, firstNumber);
 elemShift(secondNumberInput, n2x2);
 yAxisShift(secondNumberInput, secondNumber);
 
-
 firstNumberInput.addEventListener('keyup', function (e) {
 
     if (firstNumberInput.value == firstNumber) {
-        pathSecondArrow.setAttribute('d', `M ${n1x3} 147 Q ${n2x2} ${n2h} ${n2x3} 147 L ${n2x3-4} 133 ${n2x3} 147 ${n2x3-15} 145`);
+        pathSecondArrow.setAttribute('d', `M ${n1x3} 147 Q ${n2x2} ${n2h} ${n2x3} 147 L ${n2x3 - 4} 133 ${n2x3} 147 ${n2x3 - 15} 145`);
         pathSecondArrow.classList.add('animation');
         secondNumberInput.classList.add('input-animation');
 
@@ -117,7 +111,6 @@ secondNumberInput.addEventListener('keyup', function (e) {
     }
 });
 
-
 exercise.addEventListener('keyup', function (e) {
     if (e.target == sumImput) {
         if (sumImput.value == sum) {
@@ -138,4 +131,4 @@ exercise.addEventListener('keyup', function (e) {
 
         }
     }
-})
+});
